@@ -1,91 +1,29 @@
-# Christina Andrea Putri — Portfolio
+# Christina Andrea Putri
 
-> Personal portfolio site for Christina Andrea Putri, SAP Consultant & Developer.
-> Live at **https://christinandrea.github.io**
+**SAP Consultant & Developer**
+Live at **https://christinandrea.github.io**
 
-## Overview
+## About
 
-Soft-pink themed portfolio showcasing SAP Fiori/UI5, SAP Cloud Integration, and machine learning projects. Single-page scroll with dedicated project detail pages, deployed to GitHub Pages via GitHub Actions.
+SAP Consultant and Developer specializing in SAP Fiori/UI5, SAP Cloud Platform Integration, and full-stack enterprise applications. Experienced in building end-to-end integration flows, responsive UI5 apps, and machine learning pipelines.
 
-## Workflow
+## Skills
 
-```
-  ┌─────────────────────────────────────────────────┐
-  │  LOCAL                                          │
-  │                                                 │
-  │  src/ ──▶ npm run build ──▶ dist/               │
-  │                                                 │
-  └──────────────────────┬──────────────────────────┘
-                         │  git push origin main
-  ┌──────────────────────▼──────────────────────────┐
-  │  GITHUB ACTIONS                                 │
-  │                                                 │
-  │  checkout ──▶ npm ci ──▶ npm run build          │
-  │           ──▶ upload artifact ──▶ deploy pages  │
-  │                                                 │
-  └──────────────────────┬──────────────────────────┘
-                         │
-                         ▼
-             https://christinandrea.github.io
-```
+- **SAP** — Fiori/UI5, SAP CPI, OData, ABAP
+- **Frontend** — JavaScript, XML Views, HTML, CSS
+- **Backend** — Groovy, Node.js
+- **ML / Data** — Python, TensorFlow, OpenCV, Scikit-learn
+- **Tools** — Git, AWS, Docker
 
-## Tech Stack
+## Projects
 
-- **Astro 5.x** — static site generator
-- **Vanilla CSS** with CSS custom properties (pink palette)
-- **Web3Forms** — contact form backend
-- **Google Fonts** — Inter, Poppins, JetBrains Mono
-- **astro-icon** + Iconify — icon sets
-- **GitHub Actions** — CI/CD deploy to GitHub Pages
+| Project | Description |
+|---------|-------------|
+| [SAP Fiori Airlines Management](https://christinandrea.github.io/projects/fiori-training) | Enterprise CRUD app built with SAP UI5 and OData 2.0 |
+| [SAP CPI Authentication Scripts](https://christinandrea.github.io/projects/groovys-script) | OAuth & digital signature flows for SAP Cloud Integration |
+| [Carbon Prediction from Drone Imagery](https://christinandrea.github.io/projects/carbon-prediction) | ML pipeline predicting carbon values from NIR drone images (internship) |
 
-## Quick Start
+## Contact
 
-```bash
-npm install
-npm run dev       # localhost:4321
-npm run build     # production build to dist/
-npm run preview   # preview production build
-```
-
-## Project Structure
-
-```
-christinandrea.github.io/
-├── .github/workflows/deploy.yml   # GitHub Actions CI/CD
-├── public/
-│   ├── favicon.svg
-│   └── images/                    # profile + project screenshots
-├── src/
-│   ├── components/                # Navbar, Hero, About, Experience,
-│   │                              # Skills, Certifications, Projects,
-│   │                              # Contact, Footer, ProjectCard
-│   ├── data/
-│   │   ├── projects.json
-│   │   ├── skills.json
-│   │   └── experience.json
-│   ├── layouts/
-│   │   └── BaseLayout.astro
-│   ├── pages/
-│   │   ├── index.astro
-│   │   └── projects/
-│   │       ├── fiori-training.astro
-│   │       ├── groovys-script.astro
-│   │       └── carbon-prediction.astro
-│   └── styles/
-│       └── global.css             # design tokens + utilities
-├── astro.config.mjs
-└── package.json
-```
-
-## Customization
-
-| What | Where |
-|------|-------|
-| Projects | `src/data/projects.json` |
-| Skills | `src/data/skills.json` |
-| Experience | `src/data/experience.json` |
-| Colors / tokens | `src/styles/global.css` |
-| Contact email | `src/components/Contact.astro`, `src/components/Footer.astro` |
-| Web3Forms key | `src/components/Contact.astro` — replace `YOUR_ACCESS_KEY` |
-| Profile photo | Replace `public/images/profile.svg` with `profile.jpg` |
-| Project images | Replace `public/images/placeholder.svg` per project |
+- **Email** — c.andrea.putri@gmail.com
+- **GitHub** — [github.com/christinandrea](https://github.com/christinandrea)
