@@ -1,0 +1,71 @@
+---
+const currentYear = new Date().getFullYear();
+const socialLinks = [
+  { label: 'GitHub', href: 'https://github.com/christinandrea' },
+  { label: 'LinkedIn', href: '#' },
+  { label: 'Email', href: 'mailto:your@email.com' },
+];
+---
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <p class="footer-copy">&copy; {currentYear} Christina Andrea Putri. All rights reserved.</p>
+    <div class="footer-links">
+      {socialLinks.map((link) => (
+        <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label}>
+          {link.label}
+        </a>
+      ))}
+    </div>
+    <p class="footer-credit">Built with <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a></p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-primary-light);
+    padding: var(--space-8) 0;
+    text-align: center;
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .footer-copy {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: var(--space-6);
+  }
+
+  .footer-links a {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    transition: color var(--transition);
+  }
+
+  .footer-links a:hover {
+    color: var(--color-primary-dark);
+  }
+
+  .footer-credit {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+  }
+
+  .footer-credit a {
+    color: var(--color-primary);
+  }
+
+  .footer-credit a:hover {
+    color: var(--color-primary-dark);
+  }
+</style>
