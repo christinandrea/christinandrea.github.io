@@ -1,0 +1,68 @@
+---
+import skillsData from '../data/skills.json';
+---
+
+<section class="section" id="skills">
+  <div class="container">
+    <h2 class="section-title reveal">Skills</h2>
+    <p class="section-subtitle reveal">Technologies and tools I work with</p>
+    <div class="skills-grid">
+      {skillsData.map((group) => (
+        <div class="skill-card reveal">
+          <h3 class="skill-category">{group.category}</h3>
+          <div class="skill-tags">
+            {group.items.map((item) => (
+              <span class="tag">{item}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  .skill-card {
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition);
+  }
+
+  .skill-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .skill-category {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    margin-bottom: var(--space-4);
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  @media (max-width: 1024px) {
+    .skills-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
