@@ -1,43 +1,91 @@
-# Astro Starter Kit: Minimal
+# Christina Andrea Putri — Portfolio
 
-```sh
-npm create astro@latest -- --template minimal
+> Personal portfolio site for Christina Andrea Putri, SAP Consultant & Developer.
+> Live at **https://christinandrea.github.io**
+
+## Overview
+
+Soft-pink themed portfolio showcasing SAP Fiori/UI5, SAP Cloud Integration, and machine learning projects. Single-page scroll with dedicated project detail pages, deployed to GitHub Pages via GitHub Actions.
+
+## Workflow
+
+```
+  ┌─────────────────────────────────────────────────┐
+  │  LOCAL                                          │
+  │                                                 │
+  │  src/ ──▶ npm run build ──▶ dist/               │
+  │                                                 │
+  └──────────────────────┬──────────────────────────┘
+                         │  git push origin main
+  ┌──────────────────────▼──────────────────────────┐
+  │  GITHUB ACTIONS                                 │
+  │                                                 │
+  │  checkout ──▶ npm ci ──▶ npm run build          │
+  │           ──▶ upload artifact ──▶ deploy pages  │
+  │                                                 │
+  └──────────────────────┬──────────────────────────┘
+                         │
+                         ▼
+             https://christinandrea.github.io
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Tech Stack
 
-## 🚀 Project Structure
+- **Astro 5.x** — static site generator
+- **Vanilla CSS** with CSS custom properties (pink palette)
+- **Web3Forms** — contact form backend
+- **Google Fonts** — Inter, Poppins, JetBrains Mono
+- **astro-icon** + Iconify — icon sets
+- **GitHub Actions** — CI/CD deploy to GitHub Pages
 
-Inside of your Astro project, you'll see the following folders and files:
+## Quick Start
 
-```text
-/
+```bash
+npm install
+npm run dev       # localhost:4321
+npm run build     # production build to dist/
+npm run preview   # preview production build
+```
+
+## Project Structure
+
+```
+christinandrea.github.io/
+├── .github/workflows/deploy.yml   # GitHub Actions CI/CD
 ├── public/
+│   ├── favicon.svg
+│   └── images/                    # profile + project screenshots
 ├── src/
-│   └── pages/
-│       └── index.astro
+│   ├── components/                # Navbar, Hero, About, Experience,
+│   │                              # Skills, Certifications, Projects,
+│   │                              # Contact, Footer, ProjectCard
+│   ├── data/
+│   │   ├── projects.json
+│   │   ├── skills.json
+│   │   └── experience.json
+│   ├── layouts/
+│   │   └── BaseLayout.astro
+│   ├── pages/
+│   │   ├── index.astro
+│   │   └── projects/
+│   │       ├── fiori-training.astro
+│   │       ├── groovys-script.astro
+│   │       └── carbon-prediction.astro
+│   └── styles/
+│       └── global.css             # design tokens + utilities
+├── astro.config.mjs
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Customization
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+| What | Where |
+|------|-------|
+| Projects | `src/data/projects.json` |
+| Skills | `src/data/skills.json` |
+| Experience | `src/data/experience.json` |
+| Colors / tokens | `src/styles/global.css` |
+| Contact email | `src/components/Contact.astro`, `src/components/Footer.astro` |
+| Web3Forms key | `src/components/Contact.astro` — replace `YOUR_ACCESS_KEY` |
+| Profile photo | Replace `public/images/profile.svg` with `profile.jpg` |
+| Project images | Replace `public/images/placeholder.svg` per project |
