@@ -1,0 +1,125 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  description: string;
+  tags: string[];
+  slug: string;
+  badge?: string;
+  image: string;
+}
+
+const { title, subtitle, description, tags, slug, badge, image } = Astro.props;
+---
+
+<article class="project-card">
+  <div class="project-image">
+    <img src={image} alt={title} width="400" height="225" loading="lazy" />
+    {badge && <span class="project-badge">{badge}</span>}
+  </div>
+  <div class="project-body">
+    <h3 class="project-title">{title}</h3>
+    <p class="project-subtitle">{subtitle}</p>
+    <p class="project-desc">{description}</p>
+    <div class="project-tags">
+      {tags.map((tag) => (
+        <span class="tag">{tag}</span>
+      ))}
+    </div>
+    <a href={`/projects/${slug}`} class="project-link">
+      View Details <span aria-hidden="true">&rarr;</span>
+    </a>
+  </div>
+</article>
+
+<style>
+  .project-card {
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .project-image {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background: var(--color-primary-light);
+    overflow: hidden;
+  }
+
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .project-badge {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    background: var(--color-accent);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+  }
+
+  .project-body {
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .project-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: var(--space-1);
+  }
+
+  .project-subtitle {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-3);
+  }
+
+  .project-desc {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-4);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+    margin-top: auto;
+  }
+
+  .project-link {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-primary-dark);
+    transition: color var(--transition);
+  }
+
+  .project-link:hover {
+    color: var(--color-primary);
+  }
+</style>
