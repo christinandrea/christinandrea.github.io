@@ -12,7 +12,7 @@
       "Internationalization (i18n) support"
     ],
     "github": "https://github.com/christinandrea/fiori-training",
-    "image": "/images/fiori-training.png"
+    "image": "/images/placeholder.svg"
   },
   {
     "slug": "groovys-script",
@@ -27,7 +27,7 @@
       "Masked logging for production security"
     ],
     "github": "https://github.com/christinandrea/groovys-script",
-    "image": "/images/groovys-script.png"
+    "image": "/images/placeholder.svg"
   },
   {
     "slug": "carbon-prediction",
@@ -43,7 +43,7 @@
       "10% MAPE / 0.75 R² model performance"
     ],
     "github": "https://github.com/christinandrea/isai-carbon-prediction-2024",
-    "image": "/images/carbon-prediction.png",
+    "image": "/images/placeholder.svg",
     "metrics": {
       "mape": "10%",
       "r2": "0.75",
