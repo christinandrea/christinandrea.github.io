@@ -1,0 +1,425 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const project = {
+  title: 'Carbon Prediction from Drone Imagery',
+  subtitle: 'Machine learning internship project',
+  badge: 'Internship Project',
+  description: `An ML pipeline that predicts carbon values from drone-captured Near-Infrared (NIR)
+    images. The system uses computer vision techniques (FAST keypoint detection + SIFT descriptor
+    extraction) combined with a neural network to estimate carbon concentrations from cropped
+    30×30 pixel image regions. The model was trained and validated on real drone data and deployed
+    as a serverless inference endpoint on AWS Lambda.`,
+  tags: ['Python', 'TensorFlow', 'OpenCV', 'AWS Lambda', 'Docker', 'Scikit-learn'],
+  features: [
+    'FAST (Features from Accelerated Segment Test) keypoint detection',
+    'SIFT (Scale-Invariant Feature Transform) descriptor extraction',
+    'CLAHE (Contrast Limited Adaptive Histogram Equalization) image enhancement',
+    'Neural network model trained with Keras/TensorFlow',
+    'MaxAbsScaler feature normalization pipeline',
+    'AWS Lambda serverless inference with Docker containerization',
+    'S3 integration for image storage and retrieval',
+    'API Gateway endpoint for real-time predictions',
+  ],
+  github: 'https://github.com/christinandrea/isai-carbon-prediction-2024',
+  prev: { slug: 'groovys-script', title: 'CPI Auth Scripts' },
+  next: { slug: 'fiori-training', title: 'Fiori Airlines' },
+  metrics: {
+    mape: '10%',
+    r2: '0.75',
+    bestHeight: '25m',
+    bestError: '6.77%',
+  },
+};
+
+const pipelineSteps = [
+  { step: '1', label: 'Image Acquisition', detail: 'Grayscale NIR from drones' },
+  { step: '2', label: 'Preprocessing', detail: 'Center crop 30×30 + CLAHE' },
+  { step: '3', label: 'Feature Extraction', detail: 'FAST keypoints + SIFT descriptors' },
+  { step: '4', label: 'Normalization', detail: 'MaxAbsScaler transformation' },
+  { step: '5', label: 'Prediction', detail: 'Neural network inference' },
+];
+---
+
+<BaseLayout title={`${project.title} — Christina Andrea Putri`}>
+  <main class="project-detail">
+    <section class="project-hero">
+      <div class="container">
+        <a href="/#projects" class="back-link">&larr; Back to Projects</a>
+        <div class="badge-row">
+          <span class="internship-badge">{project.badge}</span>
+        </div>
+        <h1 class="project-detail-title">{project.title}</h1>
+        <p class="project-detail-subtitle">{project.subtitle}</p>
+        <div class="project-detail-tags">
+          {project.tags.map((tag) => (
+            <span class="tag">{tag}</span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container project-content">
+        <div class="project-description reveal">
+          <h2>About This Project</h2>
+          <p>{project.description}</p>
+        </div>
+
+        <div class="metrics-section reveal">
+          <h2>Model Performance</h2>
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <span class="metric-value">{project.metrics.mape}</span>
+              <span class="metric-label">MAPE</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-value">{project.metrics.r2}</span>
+              <span class="metric-label">R² Score</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-value">{project.metrics.bestHeight}</span>
+              <span class="metric-label">Best Height</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-value">{project.metrics.bestError}</span>
+              <span class="metric-label">Best Error Rate</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pipeline-section reveal">
+          <h2>Processing Pipeline</h2>
+          <div class="pipeline">
+            {pipelineSteps.map((item, index) => (
+              <div class="pipeline-step">
+                <div class="pipeline-number">{item.step}</div>
+                <div class="pipeline-info">
+                  <span class="pipeline-label">{item.label}</span>
+                  <span class="pipeline-detail">{item.detail}</span>
+                </div>
+                {index < pipelineSteps.length - 1 && (
+                  <div class="pipeline-arrow">→</div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="project-features reveal">
+          <h2>Key Features</h2>
+          <ul class="features-list">
+            {project.features.map((feature) => (
+              <li>
+                <span class="feature-check">✓</span>
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="architecture-section reveal">
+          <h2>AWS Serverless Architecture</h2>
+          <div class="architecture-placeholder">
+            <img src="/images/serverless-architecture.png" alt="AWS serverless architecture diagram" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="project-cta reveal">
+          <a href={project.github} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            View on GitHub
+          </a>
+        </div>
+
+        <nav class="project-nav reveal">
+          <a href={`/projects/${project.prev.slug}`} class="project-nav-link prev">
+            <span class="nav-direction">&larr; Previous</span>
+            <span class="nav-title">{project.prev.title}</span>
+          </a>
+          <a href={`/projects/${project.next.slug}`} class="project-nav-link next">
+            <span class="nav-direction">Next &rarr;</span>
+            <span class="nav-title">{project.next.title}</span>
+          </a>
+        </nav>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .project-hero {
+    padding: calc(var(--space-24) + 60px) 0 var(--space-12);
+    background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-primary-light) 100%);
+  }
+
+  .back-link {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-4);
+    transition: color var(--transition);
+  }
+
+  .back-link:hover {
+    color: var(--color-primary-dark);
+  }
+
+  .badge-row {
+    margin-bottom: var(--space-4);
+  }
+
+  .internship-badge {
+    display: inline-block;
+    background: var(--color-accent);
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: var(--space-1) var(--space-4);
+    border-radius: var(--radius-full);
+  }
+
+  .project-detail-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: var(--space-3);
+  }
+
+  .project-detail-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-6);
+  }
+
+  .project-detail-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .project-content {
+    max-width: 800px;
+  }
+
+  .project-content h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: var(--space-4);
+    color: var(--color-text);
+  }
+
+  .project-description {
+    margin-bottom: var(--space-12);
+  }
+
+  .project-description p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+  }
+
+  /* Metrics */
+  .metrics-section {
+    margin-bottom: var(--space-12);
+  }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-4);
+  }
+
+  .metric-card {
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    padding: var(--space-6);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-primary-light);
+  }
+
+  .metric-value {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    margin-bottom: var(--space-1);
+  }
+
+  .metric-label {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+  }
+
+  /* Pipeline */
+  .pipeline-section {
+    margin-bottom: var(--space-12);
+  }
+
+  .pipeline {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .pipeline-step {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .pipeline-number {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  .pipeline-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pipeline-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .pipeline-detail {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+  }
+
+  .pipeline-arrow {
+    color: var(--color-primary);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 var(--space-2);
+  }
+
+  /* Features */
+  .project-features {
+    margin-bottom: var(--space-12);
+  }
+
+  .features-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .features-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+
+  .feature-check {
+    color: var(--color-primary-dark);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* Architecture */
+  .architecture-section {
+    margin-bottom: var(--space-12);
+  }
+
+  .architecture-placeholder {
+    background: var(--color-primary-light);
+    border-radius: var(--radius);
+    padding: var(--space-8);
+    text-align: center;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .architecture-placeholder img {
+    max-width: 100%;
+    border-radius: var(--radius-sm);
+  }
+
+  .project-cta {
+    margin-bottom: var(--space-16);
+  }
+
+  .project-nav {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--color-primary-light);
+    padding-top: var(--space-8);
+  }
+
+  .project-nav-link {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-sm);
+    transition: background var(--transition);
+  }
+
+  .project-nav-link:hover {
+    background: var(--color-primary-light);
+  }
+
+  .project-nav-link.next {
+    text-align: right;
+    margin-left: auto;
+  }
+
+  .nav-direction {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+  }
+
+  .nav-title {
+    font-weight: 600;
+    color: var(--color-primary-dark);
+  }
+
+  @media (max-width: 768px) {
+    .project-detail-title {
+      font-size: 1.8rem;
+    }
+
+    .metrics-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pipeline {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .pipeline-arrow {
+      transform: rotate(90deg);
+      margin: var(--space-1) 0 var(--space-1) var(--space-4);
+    }
+
+    .project-nav {
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .project-nav-link.next {
+      text-align: left;
+    }
+  }
+</style>
