@@ -1,0 +1,100 @@
+---
+const certifications = [
+  {
+    name: 'SAP Certification',
+    issuer: 'SAP',
+    date: 'Coming soon',
+    description: 'Placeholder — update with actual certification details.',
+  },
+  {
+    name: 'Cloud Integration',
+    issuer: 'SAP',
+    date: 'Coming soon',
+    description: 'Placeholder — update with actual certification details.',
+  },
+];
+---
+
+<section class="section" id="certifications">
+  <div class="container">
+    <h2 class="section-title reveal">Certifications</h2>
+    <p class="section-subtitle reveal">Professional credentials and achievements</p>
+    <div class="cert-grid">
+      {certifications.map((cert) => (
+        <div class="cert-card reveal">
+          <div class="cert-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="6" />
+              <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+            </svg>
+          </div>
+          <h3 class="cert-name">{cert.name}</h3>
+          <p class="cert-issuer">{cert.issuer}</p>
+          <p class="cert-date">{cert.date}</p>
+          <p class="cert-desc">{cert.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .cert-card {
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    transition: all var(--transition);
+  }
+
+  .cert-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .cert-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: var(--color-primary-light);
+    color: var(--color-primary-dark);
+    margin-bottom: var(--space-4);
+  }
+
+  .cert-name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+  }
+
+  .cert-issuer {
+    font-size: 0.95rem;
+    color: var(--color-primary-dark);
+    font-weight: 500;
+    margin-bottom: var(--space-1);
+  }
+
+  .cert-date {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-3);
+  }
+
+  .cert-desc {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+</style>
