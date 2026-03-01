@@ -1,0 +1,14 @@
+[
+  {
+    "role": "SAP Consultant",
+    "company": "Company Name",
+    "period": "2024 – Present",
+    "description": "Placeholder — update with real experience details."
+  },
+  {
+    "role": "ML Intern",
+    "company": "ISAI",
+    "period": "2024",
+    "description": "Developed a carbon prediction pipeline from drone imagery using TensorFlow and deployed on AWS Lambda."
+  }
+]

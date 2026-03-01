@@ -1,0 +1,22 @@
+[
+  {
+    "category": "SAP",
+    "items": ["Fiori/UI5", "SAP CPI", "OData", "ABAP"]
+  },
+  {
+    "category": "Frontend",
+    "items": ["JavaScript", "XML Views", "HTML", "CSS"]
+  },
+  {
+    "category": "Backend",
+    "items": ["Groovy", "Node.js"]
+  },
+  {
+    "category": "Tools",
+    "items": ["Git", "AWS", "Docker"]
+  },
+  {
+    "category": "ML / Data",
+    "items": ["Python", "TensorFlow", "OpenCV", "Scikit-learn"]
+  }
+]

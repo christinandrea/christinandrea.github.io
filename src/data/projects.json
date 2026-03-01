@@ -1,0 +1,53 @@
+[
+  {
+    "slug": "fiori-training",
+    "title": "SAP Fiori Airlines Management",
+    "subtitle": "Enterprise CRUD application built with SAP UI5",
+    "description": "Full-stack airline management app with dynamic filtering, CRUD operations, responsive Object Page layouts, and a mock data server for local development.",
+    "tags": ["SAP UI5", "OData 2.0", "JavaScript", "XML Views"],
+    "features": [
+      "Dynamic filtering by Carrier ID and Currency Code",
+      "Carrier detail page with connections and flights tables",
+      "Responsive design across desktop, tablet, and mobile",
+      "Internationalization (i18n) support"
+    ],
+    "github": "https://github.com/christinandrea/fiori-training",
+    "image": "/images/fiori-training.png"
+  },
+  {
+    "slug": "groovys-script",
+    "title": "SAP CPI Authentication Scripts",
+    "subtitle": "OAuth & digital signature flows for SAP Cloud Integration",
+    "description": "Collection of Groovy scripts implementing token-based authentication with digital signatures, secure token management, and service-to-service communication for SAP Cloud Platform Integration.",
+    "tags": ["Groovy", "SAP CPI", "OAuth", "JSON"],
+    "features": [
+      "Pre-authentication flow with header extraction",
+      "Token management with expiry calculation",
+      "Digital signature service integration",
+      "Masked logging for production security"
+    ],
+    "github": "https://github.com/christinandrea/groovys-script",
+    "image": "/images/groovys-script.png"
+  },
+  {
+    "slug": "carbon-prediction",
+    "title": "Carbon Prediction from Drone Imagery",
+    "subtitle": "Machine learning internship project",
+    "badge": "Internship Project",
+    "description": "ML pipeline predicting carbon values from drone-captured NIR images using FAST/SIFT feature extraction and neural networks, deployed serverlessly on AWS Lambda.",
+    "tags": ["Python", "TensorFlow", "OpenCV", "AWS Lambda", "Docker"],
+    "features": [
+      "FAST keypoint + SIFT descriptor feature extraction",
+      "CLAHE image enhancement for NIR processing",
+      "AWS Lambda serverless inference pipeline",
+      "10% MAPE / 0.75 R² model performance"
+    ],
+    "github": "https://github.com/christinandrea/isai-carbon-prediction-2024",
+    "image": "/images/carbon-prediction.png",
+    "metrics": {
+      "mape": "10%",
+      "r2": "0.75",
+      "bestHeight": "25m (6.77% error)"
+    }
+  }
+]
